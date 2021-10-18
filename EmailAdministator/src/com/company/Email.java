@@ -1,9 +1,5 @@
 package com.company;
 
-import javax.swing.plaf.IconUIResource;
-import javax.swing.plaf.PanelUI;
-import java.security.PublicKey;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Email {
@@ -18,7 +14,7 @@ public class Email {
     private String companyName = ".company.com.gr" ;
 
     //Integer variables
-    private int mailboxCapacity;
+    private int mailboxCapacity = 1000;
     private int defaultPasswordLength = 15 ;
 
     //Constructor
@@ -28,7 +24,11 @@ public class Email {
         this.lastName = lastName;
 
         System.out.println();
+
         this.department = setDepartement();
+        System.out.println();
+        System.out.println("Name : "+this.firstName);
+        System.out.println("Surename : "+this.lastName);
         System.out.println("You Choose Department: "+this.department);
 
         email = firstName.toLowerCase() + "." +lastName.toLowerCase() + "@" +department.toLowerCase() + companyName.toLowerCase() ;
@@ -36,6 +36,9 @@ public class Email {
 
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("And Your password is : "+this.password);
+
+        System.out.println("MailBox Capacity : "+mailboxCapacity + "MB(Mega Byte)");
+        System.out.println();
 
     }
 
@@ -100,9 +103,10 @@ public class Email {
     public String getPassword(){
         return password;
     }
-    public String mailBoxCapacity(){
 
-        return "\nMailBox Capacity : "+getMailboxCapacity() + "MB(Mega Byte)";
+    public int mailBoxCapacity(){
+
+        return mailboxCapacity;
 
 
     }
